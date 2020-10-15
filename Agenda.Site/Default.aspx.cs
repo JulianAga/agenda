@@ -134,5 +134,10 @@ namespace Agenda.Site
             //Response.Write("<BR/>");
             //print(business.GetListExampleByFilter(new ExampleFilter() { value = "Registro" }));
         }
+
+        protected void BtnFilter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

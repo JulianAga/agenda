@@ -2,50 +2,49 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
+    <html xmlns="http://www.w3.org/1999/xhtml">
+
+
+    <body>
+
         <link href="Login.css" rel="stylesheet" type="text/css" />
 
-    <asp:Table ID="Tableasd" runat="server" Width="100%">
+        <form action="/" method="post">
 
-        <asp:TableRow>
-            
-             <asp:TableCell> Apellido y Nombre :
-            <input type="text" name="name" value="" /></asp:TableCell>
-             <asp:TableCell>País :
-            <input type="text" name="name" value="" /></asp:TableCell>
-            <asp:TableCell>Localidad :
-            <input type="text" name="name" value="" /></asp:TableCell>
-
-        </asp:TableRow>
-        <asp:TableRow>
-
-            <asp:TableCell>Fecha Ingreso Desde :
-            <input type="text" name="name" value="" /></asp:TableCell>
-             <asp:TableCell>Fecha Ingreso Hasta :
-            <input type="text" name="name" value="" /></asp:TableCell>
-            <asp:TableCell>Contacto interno :
-            <input type="text" name="name" value="" /></asp:TableCell>
-
-        </asp:TableRow>
+            <div class="container">
+                Apellido y Nombre :
+            <input type="text" name="name" value="" />
+                País :
+            <input type="text" name="name" value="" />
+                Localidad :
+            <input type="text" name="name" value="" />
 
 
-        <asp:TableRow>
-            <asp:TableCell>Organización :
-            <input type="text" name="name" value="" /></asp:TableCell>
-           <asp:TableCell>Área :
-            <input type="text" name="name" value="" /></asp:TableCell>
+                Fecha Ingreso Desde :
+            <input type="text" name="name" value="" />
+                Fecha Ingreso Hasta :
+            <input type="text" name="name" value="" />
+                Contacto interno :
+            <input type="text" name="name" value="" />
+                Organización :
+            <input type="text" name="name" value="" />
+                Área :
+            <input type="text" name="name" value="" />
+                Activo :
+            <input type="text" name="name" value="" />
 
-           <asp:TableCell>Activo :
-            <input type="text" name="name" value="" /></asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
+
+                <br />
+
+                <asp:Button ID="BtnFilter" OnClick="BtnFilter_Click" Text="Buscar" class="btn btn-success btn-xs" runat="server" />
+                <asp:Button Text="Nuevo Contacto" class="btn btn-primary btn-xs" runat="server" />
+
+            </div>
+        </form>
+
+        <br />
 
 
-    <br />
-    <div class="container">
-        <div align="right">
-        <asp:Button Text="Buscar" class="btn btn-success btn-xs" runat="server" />
-        <asp:Button Text="Nuevo Contacto" class="btn btn-primary btn-xs" runat="server" />
-        </div>
 
         <asp:Table ID="myTable" runat="server" Width="100%">
             <asp:TableRow>
@@ -72,6 +71,8 @@
         </asp:Table>
 
 
-    </div>
+    </body>
 
+</html>
 </asp:Content>
+
