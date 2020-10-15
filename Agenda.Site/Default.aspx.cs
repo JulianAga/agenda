@@ -78,7 +78,7 @@ namespace Agenda.Site
                 row.Cells.Add(email);
                 row.Cells.Add(skype);
 
-                myTable.Rows.Add(row);
+              myTable.Rows.Add(row);
 
             }
 

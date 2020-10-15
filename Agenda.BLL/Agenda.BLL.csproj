@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IContactBusiness.cs" />
     <Compile Include="MemoryExampleBusiness.cs" />
     <Compile Include="IExampleBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
