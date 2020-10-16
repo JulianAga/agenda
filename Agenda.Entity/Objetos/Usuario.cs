@@ -5,6 +5,7 @@ using System.Web;
 
 namespace Ingresar
 {
+    [Serializable]
     public class Usuario
     {
         public string User { get; set; }

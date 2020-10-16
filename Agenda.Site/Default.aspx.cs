@@ -1,8 +1,11 @@
 ﻿using Agenda.BLL;
 using Agenda.Entity;
 using Agenda.Entity.Objetos;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Runtime.Remoting.Messaging;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -22,11 +25,21 @@ namespace Agenda.Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<Contacto> contactos = (List<Contacto>)Application["listContacto"];
 
-       
+            List<Contacto> contactos = new List<Contacto>();
 
-           
+
+            if (!IsPostBack)
+            {
+                string dataArchivo = File.ReadAllText(ConfigurationManager.AppSettings.Get("PathAgenda"));
+
+                if (dataArchivo != null)
+                {
+                 contactos = JsonConvert.DeserializeObject<List<Contacto>>(dataArchivo);
+
+                }
+            }
+
 
             foreach (Contacto contacto in contactos)
             {
@@ -78,66 +91,24 @@ namespace Agenda.Site
                 row.Cells.Add(email);
                 row.Cells.Add(skype);
 
-              myTable.Rows.Add(row);
+                myTable.Rows.Add(row);
 
             }
+            if (Session["user"] != null && Cache["date"] != null) { 
+            String User = (string)Session["user"];
+            DateTime date = (DateTime)Cache["date"];
 
+            Response.Write(User);
+            Response.Write(date);
+        }
 
-            //Instancio mi business
-            //IExampleBusiness business = new MemoryExampleBusiness((List<Example>)Application["lstExample"]);
-
-            //Response.Write("Obtengo el registro con Id=3 y lo imprimio en pantalla:");
-            //Response.Write("<BR/>");
-            //Example example = business.GetExampleByID(new Example { id = 3 });
-            //Response.Write(string.Concat("Id: ", example.id.ToString(), " Value: ", example.value));
-            //Response.Write("<BR/>");
-            //Response.Write("--------------------------------------");
-            //Response.Write("<BR/>");
-
-
-
-            //Response.Write("Actualizo el registro obtenido, lo recupero y lo imprimo en pantalla:");
-            //Response.Write("<BR/>");
-            //example.value = "test update Registro example3";
-            //business.Update(example);
-            //Example exampleUpdate = business.GetExampleByID(new Example { id = 3 });
-            //Response.Write(string.Concat("Id: ", exampleUpdate.id.ToString(), " Value: ", exampleUpdate.value));
-            //Response.Write("<BR/>");
-            //Response.Write("--------------------------------------");
-            //Response.Write("<BR/>");
-
-
-            //Response.Write("Elimino el registro con Id=7:");
-            //Response.Write("<BR/>");
-            //business.Delete(new Example() { id = 7 });
-            //Response.Write("--------------------------------------");
-            //Response.Write("<BR/>");
-
-
-            //Response.Write("Inserto un nuevo registro y lo imprimo en pantalla:");
-            //Response.Write("<BR/>");
-            //Example exampleInsert = business.Insert(new Example() { value = " Registro Nuevo" });
-            //Response.Write(string.Concat("Id: ", exampleInsert.id.ToString(), " Value: ", exampleInsert.value));
-            //Response.Write("<BR/>");
-            //Response.Write("--------------------------------------");
-            //Response.Write("<BR/>");
-
-
-
-            //Response.Write("Imprimo en pantalla el listado de registros:");
-            //Response.Write("<BR/>");
-            //print(business.GetListExampleByFilter(new ExampleFilter()));
-            //Response.Write("--------------------------------------");
-            //Response.Write("<BR/>");
-
-            //Response.Write("Imprimo en pantalla el listado de registros filtrados con el value Registro:");
-            //Response.Write("<BR/>");
-            //print(business.GetListExampleByFilter(new ExampleFilter() { value = "Registro" }));
         }
 
         protected void BtnFilter_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

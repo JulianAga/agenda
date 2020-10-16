@@ -2348,6 +2348,7 @@ pre code {
 }
 table {
   background-color: transparent;
+    margin-top: 18px;
 }
 table col[class*="col-"] {
   position: static;
@@ -2370,9 +2371,9 @@ th {
   text-align: left;
 }
 .table {
-  width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
+    margin-top: 133px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,

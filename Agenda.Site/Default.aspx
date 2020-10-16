@@ -2,51 +2,76 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <link href="Login.css" rel="stylesheet" type="text/css" />
-        <title></title>
-    </head>
-    <body>
-        <div class="content">
 
-         <form id="form1" method="post" action="/">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-            <table width="100%" id="asd" runat="server">
-                  
+    
+
+            <table>
                 <tr>
                     <td>Apellido y Nombre :
-            <input type="" name="name" value="" />
+            <asp:TextBox runat="server" />
                         País :
-            <input type="" name="name" value="" />
+            <asp:TextBox runat="server" />
                         Localidad :
-            <input type="" name="name" value="" />
-                        Fecha Ingreso Desde :
-            <input type="" name="name" value="" />
-                        Fecha Ingreso Hasta :
-            <input type="" name="name" value="" />
-                        Contacto interno :
-            <input type="" name="name" value="" />
-                        Organización :
-            <input type="" name="name" value="" />
-                        Área :
-            <input type="" name="name" value="" />
-                        Activo :
-            <input type="" name="name" value="" />
+            <asp:TextBox runat="server" />
+                    </td>
 
-                        <input type="submit" name="name" value="enviar" />
+                    <tr>
+                        <td>Fecha Ingreso Desde :
+            <asp:TextBox runat="server" />
+
+                            Fecha Ingreso Hasta :
+            <asp:TextBox runat="server" />
+                            Contacto interno :
+            <asp:TextBox runat="server" />
+                        </td>
+                    </tr>
+                <tr>
+                    <td>Organización :
+            <asp:TextBox runat="server" />
+                        Área :
+            <asp:TextBox runat="server" />
+                        Activo :
+            <asp:TextBox runat="server" ID="activo" />
+
+              
 
                         <asp:Button ID="BtnFilter" OnClick="BtnFilter_Click" Text="Buscar" class="btn btn-success btn-xs" runat="server" />
                         <asp:Button Text="Nuevo Contacto" class="btn btn-primary btn-xs" runat="server" />
+
+
                     </td>
                 </tr>
-            </table>
-          </form>
-          </div>
-        <br />
-        <div class="content">
+           </table>
+       
+
+
+    <br >
+            <asp:GridView runat="server" CssClass="table" Height="285px" Width="430px">
+
+                <Columns>
+
+                    <asp:TemplateField HeaderText="Agenda">
+
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" Text="Nombre" runat="server" />
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                        </EditItemTemplate>
+
+                    </asp:TemplateField>
+
+                </Columns>
+
+            </asp:GridView>
+      
+
+    <br>
+       <p>
+            
+
+                 
         
             <asp:Table ID="myTable" runat="server" BorderWidth="1px" Width="100%">
             <asp:TableRow>
@@ -72,28 +97,12 @@
 
         </asp:Table>
 
-   </div>
-        <footer>
-            <asp:GridView runat="server" CssClass="table">
+                   
 
-                <Columns>
+       </p>
+    
 
-                    <asp:TemplateField HeaderText="Agenda">
 
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" Text="Nombre" runat="server" />
-                        </ItemTemplate>
-                        <EditItemTemplate>
-                        </EditItemTemplate>
 
-                    </asp:TemplateField>
-
-                </Columns>
-
-            </asp:GridView>
-            </footer>
-    </body>
-
-</html>
 </asp:Content>
 

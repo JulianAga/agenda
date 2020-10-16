@@ -33,4 +33,5 @@ textarea {
 div {
     display: flex;
     justify-content: center;
+    height: 43px;
 }
