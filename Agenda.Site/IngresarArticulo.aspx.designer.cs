@@ -11,7 +11,7 @@ namespace Agenda.Site
 {
 
 
-    public partial class Default
+    public partial class IngresarArticulo
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace Agenda.Site
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control activo.
+        /// Control ApellidoYNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox activo;
+        protected global::System.Web.UI.WebControls.TextBox ApellidoYNombre;
 
         /// <summary>
         /// Control BtnFilter.
@@ -49,14 +49,5 @@ namespace Agenda.Site
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnContact;
-
-        /// <summary>
-        /// Control GridViewConsulta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewConsulta;
     }
 }
