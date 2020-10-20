@@ -11,7 +11,7 @@ namespace Agenda.Site
 {
 
 
-    public partial class Default
+    public partial class VistaContactos
     {
 
         /// <summary>
@@ -24,6 +24,15 @@ namespace Agenda.Site
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control textApYNom.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textApYNom;
+
+        /// <summary>
         /// Control activo.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace Agenda.Site
         protected global::System.Web.UI.WebControls.TextBox activo;
 
         /// <summary>
-        /// Control BtnFilter.
+        /// Control ButtonBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnFilter;
+        protected global::System.Web.UI.WebControls.Button ButtonBuscar;
 
         /// <summary>
         /// Control BtnContact.

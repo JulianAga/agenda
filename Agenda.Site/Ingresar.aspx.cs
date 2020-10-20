@@ -46,7 +46,7 @@ namespace Agenda.Site
                     Response.Cookies["LoginCookieVar"]["UltimoAcceso"] = Convert.ToString(DateTime.Now);
                     Session["user"] = IDControlLogin.UserName;
                     Cache["date"] = DateTime.Now;
-                    Response.Redirect("Default.aspx");
+                    Response.Redirect("VistaContactos.aspx");
                 }
             }
         }

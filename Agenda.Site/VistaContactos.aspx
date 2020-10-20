@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Agenda.Site.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VistaContactos.aspx.cs" Inherits="Agenda.Site.VistaContactos" %>
 
 <!DOCTYPE html>
 
@@ -8,13 +8,13 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+   <form id="form1" runat="server">
         <div>
 
             <table width="100%">
                 <tr>
                     <td>Apellido y Nombre :
-            <asp:TextBox runat="server" />
+            <asp:TextBox ID="textApYNom" runat="server" />
                         País :
             <asp:TextBox runat="server" />
                         Localidad :
@@ -41,7 +41,10 @@
 
 
 
-                        <asp:Button ID="BtnFilter" Text="Buscar" class="btn btn-success btn-xs" runat="server" />
+                    
+                        <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" OnClick="Consultar"
+                            Width="350px" Height="40px" BackColor="Green" Font-Size="Larger" Font-Bold="true" ForeColor="WhiteSmoke" />
+                  
                         <asp:Button ID="BtnContact" Text="Nuevo Contacto" class="btn btn-primary btn-xs" runat="server" />
 
 

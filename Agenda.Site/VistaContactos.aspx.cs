@@ -11,15 +11,19 @@ using System.Web.UI.WebControls;
 
 namespace Agenda.Site
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class VistaContactos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+
+        }
+
+        protected void Consultar(Object sender, EventArgs e)
+        {
+
             List<Contacto> contactos = new List<Contacto>();
-
-
-            if (!IsPostBack)
-            {
+      
                 string dataArchivo = File.ReadAllText(ConfigurationManager.AppSettings.Get("PathAgenda"));
 
                 if (dataArchivo != null)
@@ -27,32 +31,25 @@ namespace Agenda.Site
                     contactos = JsonConvert.DeserializeObject<List<Contacto>>(dataArchivo);
 
                 }
-            }
-
-
+            
 
             List<Contacto> gridData = new List<Contacto>();
 
-            foreach (Contacto est in contactos)
+            foreach (Contacto contacto in contactos)
             {
-                gridData.Add(est);
+
+                gridData.Add(contacto);
+
             }
 
             GridViewConsulta.DataSource = gridData;
             GridViewConsulta.DataBind();
-
-        }
-
-        protected void Consultar(Object sender, EventArgs e)
-        {
-
-          
         }
 
         protected void GridViewConsulta_RowCommand(Object sender, GridViewCommandEventArgs e)
         {
 
-         
+
             switch (e.CommandName)
             {
                 case "Accion1":
@@ -75,7 +72,24 @@ namespace Agenda.Site
 
         protected void GridViewConsulta_Accion1(GridViewRow row)
         {
-            Contacto est = new Contacto { apellidoYNombre = row.Cells[0].Text };
+            Contacto contacto = new Contacto { 
+                apellidoYNombre = row.Cells[2].Text,
+                genero = row.Cells[3].Text,
+                pais = row.Cells[4].Text,
+                localidad = row.Cells[5].Text,
+                contactoInterno = row.Cells[6].Text,
+                organizacion = row.Cells[7].Text,
+                area = row.Cells[8].Text,
+                fechaDeIngreso = DateTime.Now,
+                activo = true,
+                direccion = row.Cells[11].Text,
+                telefono = row.Cells[12].Text,
+                celular = row.Cells[13].Text,
+                email = row.Cells[14].Text,
+                skype = row.Cells[15].Text
+            };
+
+            Cache["contacto"] = contacto; 
 
 
             Response.Redirect("IngresarArticulo.aspx");
@@ -85,7 +99,7 @@ namespace Agenda.Site
             //Funcionalidad Acción 2
         }
 
-      
 
-}
+
+    }
 }

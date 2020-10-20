@@ -18,8 +18,16 @@ namespace Agenda.Site
 
         protected void Page_Load(object sender, EventArgs e)
         {
-  
+              if (Cache["contacto"] != null)
+                {
+                    Contacto contacto = (Contacto)Cache["contacto"];
 
+                    ApellidoYNombre.Text = contacto.apellidoYNombre;
+                    ApellidoYNombre.Enabled = false;
+                BtnFilter.Enabled = false;
+                BtnFilter.Visible = false;
+
+                }
             if (!IsPostBack)
             {
                 string dataArchivo = File.ReadAllText(ConfigurationManager.AppSettings.Get("PathAgenda"));
@@ -27,8 +35,13 @@ namespace Agenda.Site
                 Session["contactos"] = JsonConvert.DeserializeObject<List<Contacto>>(dataArchivo);
             }
 
-
         }
+
+        protected void btnSalir(object sender, EventArgs e)
+        {
+            Response.Redirect("VistaContactos.aspx");
+        }
+
         protected void btnGuardar(object sender, EventArgs e)
         {
             contactos = (List<Contacto>)Session["contactos"];
@@ -36,6 +49,18 @@ namespace Agenda.Site
             Contacto contacto = new Contacto();
 
             contacto.apellidoYNombre = ApellidoYNombre.Text;
+            contacto.area = Area.Text;
+            contacto.activo = true;
+            contacto.celular = cel.Text;
+            contacto.direccion = direccion.Text;
+            contacto.email = email.Text;
+            contacto.fechaDeIngreso = DateTime.Now;
+            contacto.localidad = Localidad.Text;
+            contacto.skype = skype.Text;
+            contacto.telefono = tel.Text;
+            contacto.genero = Genero.Text;
+            contacto.contactoInterno = CI.Text;
+            contacto.organizacion = Org.Text;
 
             contactos.Add(contacto);
 
@@ -46,7 +71,9 @@ namespace Agenda.Site
                 File.WriteAllText(pathContactos, JsonConvert.SerializeObject(contactos));
             }
 
-            Response.Redirect("Default.aspx");
+            Response.Redirect("VistaContactos.aspx");
         }
+
+    
     }
 }
